@@ -1,5 +1,6 @@
 @echo off
 
+::初始化脚本
 :start
 cls
 echo ****************************************
@@ -37,20 +38,20 @@ goto start
 echo opt=%opt%
 echo 清理applog
 adb remount
-::adb shell rm -r 
+::adb shell rm -r xxx
 pause
 goto start
 
 :print_log
 echo opt=%opt%
 echo 打印applog
-adb shell "logcat"
+adb shell "logcat -v time"
 pause
 goto start
 
 :write_log
 echo opt=%opt%
 echo 写日志到文件
-adb logcat>./applog.log
+adb logcat -v time>./applog.log
 pause
 goto start
